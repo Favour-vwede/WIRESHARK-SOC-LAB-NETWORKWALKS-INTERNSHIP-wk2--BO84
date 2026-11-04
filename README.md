@@ -52,57 +52,54 @@ The following are the major areas explored during my Wireshark practice sessions
 ###  LAB 3: IDENTIFY THE ATTACKERS IP
 
 - Identifying source and destination IP addresses.
-- ident
-- Examining communication between devices.
-- Understanding how packets travel across networks.
-- Identifying hosts generating network traffic.
-![identify the attackers ip](screenshots/traffic-capture.png)
+- packets captured - 309
+- opened ports answered the SYN with SYN, ACK. closed ports answered with RST,ACK.
+- this was a port scan attack
+![identify the attackers Ip result ](screenshots/traffic-capture.png)
 
 
 ### LAB 4: FOLLOW TCP STREAM 1
+scenerio: A manager says some staff used an old office chat tool that sends messages in plain text. capture the traffic and use follow TCP stream to read the chat and see what was shared
+# findings:
+-most web traffic is port 80 and 443, the chat tool runs on tcp port 5000
+the size of the conversation was 413 bytes
+- The problem drive was a finance drive and the chat is readable by anyone on that network
 
-- Understanding the TCP three-way handshake.
-- Identifying SYN, SYN-ACK, and ACK flags.
-- Examining TCP connection behaviour.
-- Identifying TCP ports in captured traffic.
-- Understanding responses from closed ports.
-![TCP Stream](screenshots/tcp-handshake.png)
+![TCP Stream result ](screenshots/tcp-handshake.png)
 
 
 ### LAB 5: FOLLOW TCP STREAM 2
+Scenerio: A staff member browsed the company intranet, and an admin thinks someone left a secret inside one of the web pages. captured the traffic and use follow TCP stream to find the hidden text.
+# Findings
+packet captured - 282
+- The http filter found all the paged that was browsed, 5 pages were opened
+- the notes was hidden on /staff.html, in stream 7
+- The note was hidden in an HTML comment, it travelled from the server to client
 
-- Identifying protocols using packet details.
-- Examining traffic on common ports such as 80, 443, and 22.
-- Investigating traffic on unfamiliar TCP ports.
-- Understanding how ports help identify network services.
 ![TCP Stream 2](screenshots/tcp-handshake.png)
 
 ### LAB 6: HTTP PLAIN TEXT CREDENTIALS
-
-Practised using Wireshark display filters to narrow down packet captures and focus on specific traffic.
-
-Some filters explored include:
-
-| Display Filter | Purpose |
-|---|---|
-| `tcp` | Display TCP traffic |
-| `udp` | Display UDP traffic |
-| `dns` | Display DNS traffic |
-| `http` | Display HTTP traffic |
-| `ip.addr == x.x.x.x` | Filter traffic involving an IP |
-| `tcp.port == 443` | Display traffic involving TCP port 443 |
-| `tcp.flags.syn == 1` | Identify packets with the SYN flag set |
-| `icmp` | Display ICMP traffic |
-![Http](screenshots/tcp-handshake.png)
+scenerio: An old staff portal still runs on plain HTTP. capture the traffic and find out what a person on the network can read from a sign in that is not encrypted
+# FINDINGS:
+-packets captured 255
+-The sign in method used is POST
+-There was 2 sign in attempt, the second one was successfull
+-The HTML form URL encoded is where you find the username and password in the packet detail lines
+-The fix is for the portal to run on HTTPS so that data will be encrypted
+![Http process](screenshots/tcp-handshake.png)
+![Http result](screenshots/tcp-handshake.png)
 ### LAB 7: CATCH THE BRUTE FORCE ATTACKER
-Explored Wireshark's Statistics feature to understand the distribution of protocols within captured traffic.
+ Scenario:  The FTP server owner reports many failed sign-ins in the last minutes. Capture the traffic, find who is guessing passwords and whether the attacker got in.
 
-Activities included:
-
-- Using Protocol Hierarchy to identify protocols present in a capture.
-- Examining the percentage of packets associated with different protocols.
-- Identifying the protocols responsible for network communication.
-- Using packet statistics to understand captured traffic.
+# FINDINGS:
+packets captured : 369
+The server was on the FTP protocol
+ip address of FTP server: 192.168.10.20 while attackers ip : 192.168.10.66
+the attacker kept trying to login with ther username ADMIN
+The attacker kept getting the reply code 530 which means LOGIN INCORRECT and there was 24 failed logins displayed
+There was 1 successful attempt and its code was 230, this attack is a brute force attack
+![lab 7 process](screenshots/tcp-handshake.png)
+![lab 7 result](screenshots/tcp-handshake.png)
 
 ### LAB 8: CATCH THE CALL SCAMMER
 
@@ -117,39 +114,14 @@ Through these exercises, I have been developing practical skills in:
 - Network packet capture.
 - Network traffic inspection.
 - TCP/IP analysis.
-- Protocol identification.
+- Protocol identification
+- using statistics to check conversations.
 - Port identification.
-- IP address analysis.
 - Wireshark display filtering.
-- TCP flag interpretation.
 - Network statistics and protocol hierarchy.
 - Basic network troubleshooting.
 
-## 📸 Lab Screenshots & Evidence
 
-Screenshots from my practical sessions are included to document the exercises and demonstrate the analysis performed.
-
-### 1. Network Traffic Capture
-
-![Network Traffic Capture](screenshots/traffic-capture.png)
-
-### 2. TCP Three-Way Handshake
-
-![TCP Handshake](screenshots/tcp-handshake.png)
-
-### 3. Display Filter Analysis
-
-![Display Filters](screenshots/display-filters.png)
-
-### 4. Protocol Hierarchy
-
-![Protocol Hierarchy](screenshots/protocol-hierarchy.png)
-
-### 5. TCP Port Analysis
-
-![TCP Port Analysis](screenshots/tcp-port-analysis.png)
-
-*Replace the example image paths with your actual screenshot filenames.*
 
 ## 💡 Key Learnings
 
@@ -164,23 +136,8 @@ Some important takeaways include:
 - Protocol Hierarchy provides a useful overview of the protocols present in a capture.
 - Packet analysis requires observation, patience, and attention to detail.
 
-## 🔮 Future Learning Goals
 
-As I continue developing my cybersecurity skills, I intend to:
 
-- Explore more advanced packet analysis.
-- Practise identifying unusual network traffic patterns.
-- Improve my understanding of network protocols.
-- Explore DNS and HTTP/HTTPS traffic in greater detail.
-- Build more practical network analysis projects.
-- Connect packet analysis concepts to network security monitoring.
-
-## 🔗 References & Learning Resources
-
-- [Wireshark Official Website](https://www.wireshark.org/)
-- [Wireshark User Guide](https://www.wireshark.org/docs/wsug_html/)
-- [Wireshark Display Filters](https://wiki.wireshark.org/DisplayFilters)
-- [Wireshark Documentation](https://www.wireshark.org/docs/)
 
 ## 👩‍💻 Author
 
