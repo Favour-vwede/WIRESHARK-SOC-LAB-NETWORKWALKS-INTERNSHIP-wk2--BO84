@@ -102,11 +102,16 @@ There was 1 successful attempt and its code was 230, this attack is a brute forc
 ![lab 7 result](screenshots/tcp-handshake.png)
 
 ### LAB 8: CATCH THE CALL SCAMMER
-
-Explored how Wireshark's Follow TCP Stream feature helps examine communication between endpoints within a TCP connection.
-
-This provided a better understanding of how individual packets form part of a larger communication session.
-
+Scenario. A phone call was made through the company VoIP system. Capture the traffic, find the call and play it back to learn what was said.
+# FINDINGS:
+-packets captured:  1051
+-The call was set up by the SIP
+-RTP protocol carried the voice itself, as many small packets (804 was displayed)
+-The codec that carried the voice PCMU
+-I was able to listen in on the call and get sensitive information to fix this the company should encrypt calls using SRTP 
+![lab 8 process](screenshots/tcp-handshake.png)
+![lab 8 CALL](screenshots/tcp-handshake.png)
+![lab 8 RESULT](screenshots/tcp-handshake.png)
 ## 📊 Practical Skills Developed
 
 Through these exercises, I have been developing practical skills in:
