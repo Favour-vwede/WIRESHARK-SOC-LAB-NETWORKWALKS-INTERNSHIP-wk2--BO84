@@ -6,11 +6,10 @@ Exploring network traffic, capturing packets, and understanding how devices comm
 ![Wireshark](https://img.shields.io/badge/Tool-Wireshark-1679A7)
 ![Focus](https://img.shields.io/badge/Focus-Network%20Analysis-blue)
 ![Domain](https://img.shields.io/badge/Domain-Cybersecurity-red)
-![Status](https://img.shields.io/badge/Status-In%20Progress-orange)
 
 ## 📌 Project Overview
 
-This repository documents my hands-on practice with **Wireshark**, an open-source network protocol analyzer used to capture, inspect, and analyze network traffic.
+This repository documents my hands on practice with **Wireshark**, an open-source network protocol analyzer used to capture, inspect, and analyze network traffic.
 
 As part of my cybersecurity learning journey, I have been working through practical exercises to understand how network communication happens at packet level.
 
@@ -35,9 +34,8 @@ The goal is to move beyond networking theory and develop practical skills in net
 |---|---|
 | Wireshark | Network packet capture and analysis |
 | Windows 11 | Host operating system |
-| Kali Linux | Linux learning environment |
-| TCP/IP | Understanding network communication |
-| VirtualBox | Virtual machine environment |
+| Labs | Lab 3 - Lab 8 |
+
 
 ## 🔬 Practical Labs & Exercises
 
@@ -51,29 +49,35 @@ The following are the major areas explored during my Wireshark practice sessions
 - Understanding packet details and protocol layers.
 - Observing communication between network devices.
 
-### 2. IP Address & Network Analysis
+###  LAB 3: IDENTIFY THE ATTACKERS IP
 
 - Identifying source and destination IP addresses.
+- ident
 - Examining communication between devices.
 - Understanding how packets travel across networks.
 - Identifying hosts generating network traffic.
+![identify the attackers ip](screenshots/traffic-capture.png)
 
-### 3. TCP Analysis
+
+### LAB 4: FOLLOW TCP STREAM 1
 
 - Understanding the TCP three-way handshake.
 - Identifying SYN, SYN-ACK, and ACK flags.
 - Examining TCP connection behaviour.
 - Identifying TCP ports in captured traffic.
 - Understanding responses from closed ports.
+![TCP Stream](screenshots/tcp-handshake.png)
 
-### 4. Protocol & Port Identification
+
+### LAB 5: FOLLOW TCP STREAM 2
 
 - Identifying protocols using packet details.
 - Examining traffic on common ports such as 80, 443, and 22.
 - Investigating traffic on unfamiliar TCP ports.
 - Understanding how ports help identify network services.
+![TCP Stream 2](screenshots/tcp-handshake.png)
 
-### 5. Display Filters
+### LAB 6: HTTP PLAIN TEXT CREDENTIALS
 
 Practised using Wireshark display filters to narrow down packet captures and focus on specific traffic.
 
@@ -89,9 +93,8 @@ Some filters explored include:
 | `tcp.port == 443` | Display traffic involving TCP port 443 |
 | `tcp.flags.syn == 1` | Identify packets with the SYN flag set |
 | `icmp` | Display ICMP traffic |
-
-### 6. Protocol Hierarchy & Statistics
-
+![Http](screenshots/tcp-handshake.png)
+### LAB 7: CATCH THE BRUTE FORCE ATTACKER
 Explored Wireshark's Statistics feature to understand the distribution of protocols within captured traffic.
 
 Activities included:
@@ -101,7 +104,7 @@ Activities included:
 - Identifying the protocols responsible for network communication.
 - Using packet statistics to understand captured traffic.
 
-### 7. TCP Stream Analysis
+### LAB 8: CATCH THE CALL SCAMMER
 
 Explored how Wireshark's Follow TCP Stream feature helps examine communication between endpoints within a TCP connection.
 
