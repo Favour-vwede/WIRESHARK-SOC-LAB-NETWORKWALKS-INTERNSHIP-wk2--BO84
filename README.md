@@ -110,7 +110,7 @@ Scenario. A phone call was made through the company VoIP system. Capture the tra
 -The codec that carried the voice PCMU
 -I was able to listen in on the call and get sensitive information to fix this the company should encrypt calls using SRTP 
 ![lab 8 process](screenshots/tcp-handshake.png)
-![lab 8 CALL](screenshots/tcp-handshake.png)
+![lab 8 CALL](LAB-8-CALL.png)
 ![lab 8 RESULT](screenshots/tcp-handshake.png)
 ## 📊 Practical Skills Developed
 
