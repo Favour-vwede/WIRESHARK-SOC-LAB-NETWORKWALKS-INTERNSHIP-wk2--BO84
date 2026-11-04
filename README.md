@@ -1,0 +1,2 @@
+# WIRESHARK-SOC-LAB-NETWORKWALKS-INTERNSHIP-wk2--BO84
+I completed 6 wireshark labs 
